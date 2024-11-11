@@ -44,6 +44,16 @@ void List::push_front(int value)
 
 void List::clear()
 {
+	Node* current = head;
+	while (current != nullptr)
+	{
+		Node* temp = current->next;
+		delete current;
+		current = temp;
+		size--;
+	}
+	head = nullptr;
+	tail = nullptr;
 }
 
 void List::show() const
@@ -59,4 +69,5 @@ void List::show() const
 
 List::~List()
 {
+	clear();
 }

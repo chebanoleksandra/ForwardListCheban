@@ -30,5 +30,7 @@ int main()
     list.push_back(-5);
     list.push_front(0);
     list.show();
+    list.clear();
+    list.show();
     return 0;
 }
