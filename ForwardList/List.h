@@ -12,6 +12,8 @@ class List
 		{}
 		Node(Node* prev, int value) :value(value), prev(prev), next(nullptr)
 		{}
+		Node(int value, Node* next) :value(value), prev(nullptr), next(next)
+		{}
 	};
 private:
 	Node* head;
@@ -19,6 +21,7 @@ private:
 	size_t size;
 public:
 	List();
+	List(const List& other);
 	void push_back(int value);
 	void push_front(int value);
 	void clear();
