@@ -1,4 +1,4 @@
-#include "List.h"
+/*#include "List.h"
 #include <iostream>
 using namespace std;
 
@@ -6,7 +6,7 @@ List::List()
 	:head(nullptr), tail(nullptr), size(0)
 {}
 
-List::List(const List & other)
+List::List(const List& other)
 	:head(nullptr), tail(nullptr), size(0)
 {
 	if (!other.size == 0)
@@ -33,7 +33,7 @@ List::List(const List & other)
 
 void List::push_back(int value)
 {
-	
+
 	if (head && tail)
 	{
 		Node* new_node = new Node(tail, value);
@@ -54,8 +54,8 @@ void List::push_front(int value)
 	if (head && tail)
 	{
 		//my version
-		/*Node* new_node = new Node(value);
-		new_node->next = head;*/
+		//Node* new_node = new Node(value);
+		new_node->next = head;//
 
 		Node* new_node = new Node(value, head);
 		head->prev = new_node;
@@ -73,7 +73,7 @@ void List::push_front(int value)
 void List::clear()
 {
 	//my version
-	/*Node* current = head;
+	//Node* current = head;
 	while (current != nullptr)
 	{
 		Node* temp = current->next;
@@ -82,7 +82,7 @@ void List::clear()
 		size--;
 	}
 	head = nullptr;
-	tail = nullptr;*/
+	tail = nullptr;//
 
 	//classwork
 	if (head && tail)
@@ -191,4 +191,4 @@ void List::pop_front() {
 List::~List()
 {
 	clear();
-}
+}*/
