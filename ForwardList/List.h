@@ -26,6 +26,10 @@ public:
 	void push_front(int value);
 	void clear();
 	void show() const;
+	List& operator=(const List& other);
+	void reverse();
+	void pop_back();
+	void pop_front();
 	~List();
 };
 

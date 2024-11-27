@@ -112,6 +112,82 @@ void List::show() const
 	cout << endl;
 }
 
+List& List::operator=(const List& other) {
+	if (this == &other)
+	{
+		return *this;
+	}
+	if (other.head == nullptr)
+	{
+		return *this;
+	}
+	clear();
+	Node* current = other.head;
+	while (current) {
+		push_back(current->value);
+		current = current->next;
+	}
+	return *this;
+}
+
+void List::reverse() {
+	if (head == nullptr || tail == nullptr)
+	{
+		return;
+	}
+	Node* current = head;
+	Node* temp = nullptr;
+	while (current) {
+		temp = current->prev;
+		current->prev = current->next;
+		current->next = temp;
+		current = current->prev;
+	}
+	temp = head;
+	head = tail;
+	tail = temp;
+}
+
+void List::pop_back() {
+	if (tail == nullptr)
+	{
+		return;
+	}
+	Node* temp = tail;
+	tail = tail->prev;
+	if (tail)
+	{
+		tail->next = nullptr;
+	}
+	else
+	{
+		head = nullptr;
+	}
+
+	delete temp;
+	size--;
+}
+
+void List::pop_front() {
+	if (head == nullptr)
+	{
+		return;
+	}
+	Node* temp = head;
+	head = head->next;
+	if (head)
+	{
+		head->prev = nullptr;
+	}
+	else
+	{
+		tail = nullptr;
+	}
+	delete temp;
+	size--;
+}
+
+
 List::~List()
 {
 	clear();
